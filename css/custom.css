@@ -1,0 +1,36 @@
+.me {
+    margin: 0 !important;
+    text-align: center !important;
+}
+
+.me li {
+    list-style-type: none;
+    text-align: left;
+}
+
+.me li a {
+    margin-left: 15px;
+}
+
+img.no-border {
+    border: 0 !important;
+    box-shadow: none !important;
+    background: none !important;
+}
+
+.invert-color h1 {
+    color: #fff !important;
+}
+
+p.left {
+    text-align: left !important;
+}
+
+.oldies h2,
+.oldies p {
+    font-family: Comic Sans, Comic Sans MS, cursive;
+}
+
+.slides h2 {
+    margin-bottom: 6%;
+}

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Web Analytics & Tracking 101 | William Durand</title>
+        <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+        <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+        <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/fix-fontawesome-reveal-js.css">
+        <link rel="stylesheet" href="css/custom.css">
+        <script>
+            document.write('<link rel="stylesheet" href="reveal.js/css/print/' +
+                (window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper') +
+                '.css" type="text/css" media="print">'
+            );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1 class="title">Web Analytics & Tracking 101</h1>
+                    <br>
+                    <em>William Durand &mdash; June 10, 2014</em>
+                </section>
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            # Web Analytics
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Definition
+
+                            **Web analytics** is the **measurement**, **collection**, **analysis** and **reporting**
+                            of web data for purposes of **understanding** and **optimizing web usage**.
+
+                            It can be used as a tool for business and market research.
+
+                            <br>
+                            There are two categories of web analytics:
+
+                            * **off-site** web analytics
+                            * **on-site** web analytics
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Off-Site WA
+
+                            Off-site web analytics refers to web measurement and analysis regardless of
+                            whether you own or maintain a website.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## On-Site WA
+
+                            On-site web analytics measures a **visitor's behavior once on your website**.
+                            There are two main technical ways of collecting the data: **server log file
+                            analysis**, and **page tagging**.
+
+                            <br>
+                            <br>
+                            <i class="fa fa-hand-o-right"></i> [Google Analytics](http://www.google.com/analytics/) is the most
+                            widely used on-site web<br>analytics service. [Piwik](http://piwik.org/) is its Open-Source
+                            alternative.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Server Log File Analysis (1/2)
+
+                            Web servers record some of their transactions in a **logfile**.
+
+                            In the early 1990s, web site statistics consisted of counting the number
+                            of client requests, called **hits**, made to the web server.
+
+                            <br>
+                            This was a reasonable method initially, since each web site often consisted of a
+                            single HTML file. However, with the introduction of images in HTML, and web
+                            sites that spanned multiple HTML files, this count became less useful.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Server Log File Analysis (2/2)
+
+                            Two units of measure were introduced in the mid-1990s to gauge more accurately
+                            the amount of human activity on web servers:
+
+                            * **page views**: a request made to the web server for a page,
+                            * **visits** or **sessions**: a sequence of requests from a uniquely identified
+                            client that expired after a certain amount of inactivity.
+
+                            <br>
+                            Because of caching, this method is not accurate enough.
+                        </script>
+                    </section>
+                    <section data-markdown data-background="images/bg-1990.jpeg" class="oldies">
+                        <script type="text/template">
+                            ## Page Tagging (1/3)
+
+                            In the mid-1990s, Web counters were commonly seen:
+
+                            <img src="images/webcounter.gif" class="no-border" />
+
+                            <img src="images/construction.gif" class="no-border" />
+
+                            <marquee>U Can't Touch This!</marquee>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Page Tagging (2/3)
+
+                            In the late 1990s this concept evolved to include a
+                            **small invisible image** (called a [web
+                            bug](http://en.wikipedia.org/wiki/Web_bugs)) rather
+                            than a visible one, and, by **using JavaScript**,
+                            **to pass** along with the image request certain
+                            **information about the page** and **the visitor**.
+
+                            <br>
+                            This information can then be processed remotely by
+                            a web analytics company, and extensive statistics
+                            generated.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Page Tagging (3/3)
+
+                            Historically, vendors of page-tagging analytics solutions have used **third-party
+                            cookies** sent from the vendor's domain instead of the domain of the website
+                            being browsed.
+
+                            Third-party cookies can handle visitors who cross multiple unrelated domains within
+                            the company's site, since the cookie is always handled by the vendor's servers.
+                            However, there are two problems: **privacy concerns** and **cookie deletion**.
+
+                            <br>
+                            Most vendors of page tagging solutions have now moved to provide at least the option
+                            of using **first-party cookies** (i.e. cookies assigned from the client subdomain).
+                        </script>
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            # Google Analytics
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Overview
+
+                            Google Analytics works by the **inclusion of a block of JavaScript code on pages**
+                            in your website. When users to your website view a page, this JavaScript code
+                            references a JavaScript file which then executes the **tracking operation**.
+
+                            <br>
+                            The tracking operation retrieves data about the page request through various
+                            means and **sends this information** to the<br>Google Analytics server **via a list
+                            of parameters attached to<br>a single-pixel image request**.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## How Does The Tracking Code Work? (1/2)
+
+                            1. A browser requests a web page that contains the tracking code
+                            2. A JavaScript `Array` named `_gaq` is created and tracking commands are pushed onto the array
+                            3. A `<script>` element is created and enabled for asynchronous loading
+                            4. The `ga.js` tracking code is fetched. Once fetched and loaded, the commands on the
+                            `_gaq` array are executed and the array is transformed into a tracking object
+                            5. Loads the script element to the DOM
+                            6. After the tracking code collects data, the GIF request is sent to the Analytics database for
+                            logging and post-processing
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## How Does The Tracking Code Work? (2/2)
+
+                            <img src="images/ga-tracking.png" class="no-border" />
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## How Does Google Analytics Collect Data? (1/2)
+
+                            The **data used** to provide all the information in Google
+                            Analytics **reports** comes from three different sources:
+
+                            * The **HTTP request** of the user (hostname, the browser type, referrer, language)
+                            * Browser/system information (Java and Flash support, screen resolution thanks to the DOM)
+                            * First-party cookies (in order to obtain user session)
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## How Does Google Analytics Collect Data? (2/2)
+
+                            When all this information is collected, it is sent
+                            to the Google Analytics servers in the form of a
+                            **long list of parameters** attached to a
+                            **single-pixel GIF image** request:
+
+                            <pre><code>http://www.google-analytics.com/__utm.gif?
+                                utmac=UA-30138-1&                      // Account
+                                utmcc=__utma%3D97315849.1774621898...& // Cookie values
+                                utmdt=analytics%20page%20test&         // Page title
+                                utmfl=9.0%20r48&                       // Flash version
+                                utmhn=example.com&                     // Hostname
+                                utmn=769876874&                        // Unique ID to prevent caching
+                                utmcs=ISO-8859-1&                      // Language enc.
+                                utmsr=1280x1024&                       // Screen resolution
+                                utmsc=32-bit&                          // Screen color depth
+                                utmul=en-us&                           // Browser language
+                                ...
+                            </code></pre>
+
+                            <i class="fa fa-book"></i> [The Google Analytics GIF Request
+                            Parameters](https://developers.google.com/analytics/resources/articles/gaTrackingTroubleshooting#gifParameters)
+                        </script>
+                    </section>
+                    <section>
+                        <p><img src="images/google-analytics.png" class="no-border" /></p>
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            # Web Tracking
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Definition
+
+                            **Web tracking** or **Website visitor tracking** is the analysis of visitor
+                            behaviour on a website. Analysis of an individual visitor's behaviour may be
+                            used to provide that visitor with options or content that relates to their
+                            implied preferences.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## It Is All About Cookies!!!
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Cookies (1/2)
+
+                            A cookie is _a small piece of data sent from a website and stored in a user's
+                            web browser while the user is browsing that website_ according to
+                            [Wikipedia](http://en.wikipedia.org/wiki/HTTP_cookie).
+
+                            <br>
+                            Every time the user loads the website, **the browser sends the cookies back**
+                            to the server to notify the website of the user's previous activity.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Cookies (2/2)
+
+                            Cookies have some **important implications** on the<br>**privacy** and
+                            **anonymity** of web users.
+
+                            <br>
+                            While cookies are sent only to the server setting them or a server in
+                            the same Internet domain, a web page may contain images or other components
+                            stored on servers in other domains.
+
+                            Cookies that are set during retrieval of these components are called
+                            **third-party cookies**. Advertising companies use third-party cookies to
+                            track a user across multiple sites.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## EU Cookie Directive
+
+                            The **EU cookie directive** requires websites to
+                            gain permission from users, before planting cookies
+                            with two exceptions:
+
+                            * Some cookies can be exempted from informed consent
+                            under certain conditions if they are not used for
+                            additional purposes (e.g. cookies used to keep
+                            track of a user's input when filling online forms
+                            or as a shopping cart);
+                            * First-party analytics cookies are not likely to
+                            create a privacy risk if websites provide clear
+                            information about the cookies to users and privacy
+                            safeguards.
+
+                            ![](images/cookie-law.png)
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## How Do Third-Party Tracking Cookies work? (1/4)
+
+                            Let's say you have four websites:
+
+                            * gizmodo.com
+                            * slashdot.org
+                            * wired.com
+                            * facebook.com
+
+                            <br>
+                            You are a user, and you visit each of these websites.
+                            Each of these websites also works with a third-party company whose
+                            job is to serve ads, and named: **badboys.com**.
+
+                            On every page of these websites, there is a web bug that points to
+                            badboys.com's adserver and requests an ad.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## How Do Third-Party Tracking Cookies work? (2/4)
+
+                            Assuming `gizmodo.com` knows your age and gender,
+                            when visiting it, the following request is made:
+
+                                http://badboys.com/adrequest?site=gizmodo.com?age=25&gender=m
+
+                            1. Browser requests content
+                            2. Server requests cookies (if any)
+                            3. Browser sends cookies
+                            4. Server does some black magic, and picks an ad
+                            5. Server returns new cookie data, and the ad
+                            6. Browser displays this ad
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## How Do Third-Party Tracking Cookies work? (3/4)
+
+                            Even though you are visiting the site
+                            `gizmodo.com`, the cookie is under the domain
+                            `badboys.com`.
+                            When the server returns new cookie data, it puts in
+                            there when you last visited `gizmodo.com` and how
+                            many times you’ve been there today.
+
+                            <br>
+                            Now let's say you spend the morning watching tech-news on
+                            `gizmodo.com`, `slashdot.org`, and `wired.com`, all the while
+                            receiving ads from `badboys.com`. Each page you view gives them
+                            a little bit more information about you.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## How Do Third-Party Tracking Cookies work? (4/4)
+
+                            Now, you go to `facebook.com`. Serving an ad for such a website is
+                            complicated as it depends on how you use Facebook. Maybe you didn't
+                            fill in enough information to know your age, your gender or things
+                            you like.
+
+                            <br>
+                            **But**, let's walk through the steps of a Facebook's ad call to
+                            `badboys.com` in more detail!
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## 1. Browser Requests Content
+
+                                http://badboys.com/adrequest?site=facebook.com
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## 2. Server Requests Cookies (If Any)
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## 3. Browser Sends Cookies
+
+                            * Cookie contains your age & gender (25 & male) (encrypted)
+                            * Cookie shows you visited `gizmodo.com` 12 times this morning
+                            * Cookie shows you visited `slashdot.org` 3 times this morning
+                            * Cookie shows you visited `wired.com` once this morning
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## 4. Server Does Some Black Magic, And Picks An Ad
+
+                            * Server puts user data (_25, male, 16 visits to tech sites_) into a **profile engine**
+                            * Profile engine represents **categories**, say `male`, `tech`
+                            * Server looks for ad campaigns targeted to `male` **and** `tech`
+                            * Server picks highest paying `male` and `tech` targeted ad campaign
+
+                            <br>
+                            _That's the black magic!_
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## 5. Server Returns New Cookie Data, And The Ad
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## 6. Browser Displays This Ad
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Conclusion
+
+                            Instead of showing you a random ad, `badboys.com`
+                            is able to show you a highly relevant and targeted
+                            advertisement that you are far more likely to click
+                            on.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## And...
+
+                            Given how much tracking companies know about your
+                            browsing history, it is worth asking whether these
+                            companies also know who you are. The answer,
+                            unfortunately, appears to be **yes**, at least for
+                            those of you who use social networking sites.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Paths For Data Leakage From Social Networks To Third-Party Tracking Companies
+
+                            The most obvious way that a third-party tracker
+                            (remember `badboys.com`?) might learn which account
+                            on a social networking site is yours via the **HTTP
+                            `Referrer` header**.
+
+                            A typical URL on a social networking site includes
+                            a username or user ID number, and any third-party
+                            will be able to see that.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## What Can You Do?
+
+                            1. Pick a **good cookie policy** for your browser, like **only keep
+                            cookies until I close my browser**, or manual approval of all cookies
+                            2. **Disable Flash cookies** and all the other kinds of **super cookies**
+                            3. Use browser **extensions to control when third-party sites can include
+                            content** in your pages or run code in your browser
+                            4. [Ghostery](https://www.ghostery.com/en/) FTW!
+
+                            <br>
+                            Also, check out [knowyourelements.com](http://www.knowyourelements.com/) now!
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Are We Safe?
+
+                            ![](images/nope.gif)
+                        </script>
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            # The NSA
+                        </script>
+                    </section>
+                    <section>
+                        <img src="images/nsa.png" />
+                        <small>
+                            A slide from an internal NSA presentation indicating that the agency uses at least one
+                            <br>Google cookie as a way to identify targets for exploitation. Thank you <strong>Edward Snowden</strong>!
+                        </small>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## What The F**k?
+
+                            The **NSA** and its British counterpart, **GCHQ**, **are
+                            using cookies** that advertising networks place on
+                            computers **to identify people** browsing the Internet.
+
+                            <br>
+                            The intelligence agencies have found particular use
+                            for a part of a Google-specific tracking mechanism
+                            known as the **PREF cookie**.
+
+                            These cookies typically don't contain personal
+                            information, but they do contain numeric codes that
+                            enable websites to uniquely identify a person's
+                            browser.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Google's PREF Cookie
+
+                            Google assigns a **unique PREF cookie** anytime
+                            someone's browser makes a connection to any of the
+                            company's Web properties or services.
+
+                            This can occur when consumers directly use Google
+                            services (Search, Maps, etc.), or when they visit
+                            websites that contain **embedded widgets** (Google Plus).
+
+                            That cookie contains a code that allows Google to
+                            uniquely<br>track users to **personalize ads**.
+                        </script>
+                    </section>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Thank You.
+
+                        ### Questions?
+
+                        <br>
+                        <br>
+                        <br>
+                        <ul class="me">
+                            <li>
+                                <p><i class="fa fa-globe"></i><a href="http://williamdurand.fr" title="website">williamdurand.fr</a></p>
+                            </li>
+                            <li>
+                                <p><i class="fa fa-github"></i><a href="https://github/willdurand" title="github">github.com/willdurand</a></p>
+                            </li>
+                            <li>
+                                <p><i class="fa fa-twitter"></i><a href="https://twitter.com/couac" title="twitter">twitter.com/couac</a></p>
+                            </li>
+                        </ul>
+                    </script>
+                </section>
+            </div>
+        </div>
+        <script src="reveal.js/lib/js/head.min.js"></script>
+        <script src="reveal.js/js/reveal.min.js"></script>
+        <script>
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                slideNumber: true,
+
+                theme: Reveal.getQueryHash().theme,
+                transition: Reveal.getQueryHash().transition || 'concave',
+
+                dependencies: [
+                    { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                ]
+            });
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-28365039-1', 'williamdurand.fr');
+            ga('send', 'pageview');
+        </script>
+        <a href="https://github.com/willdurand-edu/web-security-101-slides"><img style="position: absolute; top: 0; right: 0; border: 0; border-radius: none; box-shadow: none;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub"></a>
+    </body>
+</html>
