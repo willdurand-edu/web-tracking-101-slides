@@ -266,6 +266,8 @@
                     <section data-markdown>
                         <script type="text/template">
                             ## It Is All About Cookies!!!
+
+                            (Well, most of the time)
                         </script>
                     </section>
                     <section data-markdown>
@@ -427,7 +429,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ### 5. Server Returns New Cookie Data, And The Ad
+                            ### 5. Server Returns New Cookie Data,<br>And The Ad
                         </script>
                     </section>
                     <section data-markdown>
@@ -485,8 +487,75 @@
                             6. [TOR](https://www.torproject.org/)? [Tails](https://tails.boum.org/)?
 
                             <br>
-                            Also, check out [knowyourelements.com](http://www.knowyourelements.com/), and
+                            Also, check out [panopticlick.eff.org](https://panopticlick.eff.org), and
                             [Lightbeam](http://www.mozilla.org/fr/lightbeam/)!
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### Is your browser safe against tracking? (1/3)
+                            <br>
+
+                            **Browser fingerprinting** is a method of tracking
+                            web<br>browsers by the configuration and settings
+                            information<br>they make visible to websites.
+
+                            <br>
+                            If your browser is **unique**, then it's possible
+                            that **an online tracker can identify you** even
+                            without setting tracking cookies.
+
+                            <br>
+                            <small>
+                                <i class="fa fa-book"></i> Paper: [How Unique Is Your Web Browser?](https://panopticlick.eff.org/static/browser-uniqueness.pdf)
+                            </small>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### Is your browser safe against tracking? (2/3)
+                            <br>
+
+                            **Canvas fingerprinting** is a more sophisticated
+                            type of browser fingerprinting technique.  Entropy
+                            is due to Operating System, browser, GPU, and
+                            graphics driver. In short:
+
+                            * Relies on a hidden HTML5 `<canvas>`
+                            * JavaScript renders text and drawing
+                            * The final bitmap is then converted into a unique token
+
+                            <br>
+                            <small>
+                                <i class="fa fa-book"></i> Paper: [The Web Never Forgets: Persistent Tracking Mechanisms in the Wild](https://securehomes.esat.kuleuven.be/~gacar/persistent/the_web_never_forgets.pdf)
+                            </small>
+                        </script>
+                    </section>
+                    <section data-markdown class="no-border">
+                        <script type="text/template">
+                            ### Canvas Fingerprinting
+
+                            ![](images/canvas_fig.png)
+
+                            ![](images/canvas_imgs.png)
+
+                            <small>
+                                Source: https://securehomes.esat.kuleuven.be/~gacar/persistent/index.html
+                            </small>
+                        </script>
+                    </section>
+                    <section data-markdown class="no-border">
+                        <script type="text/template">
+                            ### Is your browser safe against tracking? (3/3)
+
+                            **History stealing** with CSS `:visited`
+
+                            ![](images/css-leak.png)
+
+                            <small>
+                            <i class="fa fa-book"></i> [Plugging the CSS History Leak](https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/)
+                            / [Extra Lecture: Privacy on the Web](http://www.ccs.neu.edu/home/amislove/teaching/cs3700/spring15/lectures/lecture21.pdf)
+                            </small>
                         </script>
                     </section>
                     <section data-markdown>

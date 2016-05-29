@@ -17,6 +17,7 @@
     margin-left: 15px;
 }
 
+.no-border img,
 img.no-border {
     border: 0 !important;
     box-shadow: none !important;
