@@ -1,3 +1,8 @@
+.slides p,
+.slides li {
+    font-size: 2.2rem!important;
+}
+
 .me {
     margin: 0 !important;
     text-align: center !important;

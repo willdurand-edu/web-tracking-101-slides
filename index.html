@@ -4,8 +4,8 @@
         <meta charset="utf-8">
 
         <title>Web Analytics & Tracking 101 | William Durand</title>
-        <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
-        <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+        <link rel="stylesheet" href="reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
         <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
         <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/fix-fontawesome-reveal-js.css">
@@ -45,17 +45,15 @@
                         <script type="text/template">
                             ## Definition
 
-                            **Web analytics** is the **measurement**, **collection**, **analysis** and **reporting**
-                            of web data for purposes of **understanding** and **optimizing web usage**.
+                            **Web analytics** is the **measurement**, **collection**, **analysis**<br>and **reporting**
+                            of web data for purposes of **understanding**<br>and **optimizing web usage**.
 
                             <br>
-                            It can be used as a tool for business and market research.
+                            * It can be used as a tool for business and market research
+                            * There are two categories of web analytics:
 
-                            <br>
-                            There are two categories of web analytics:
-
-                            * **off-site** web analytics
-                            * **on-site** web analytics
+                              - **off-site** web analytics
+                              - **on-site** web analytics
                         </script>
                     </section>
                     <section data-markdown>
@@ -63,16 +61,16 @@
                             ## Off-Site WA
 
                             Off-site web analytics refers to web measurement and analysis regardless of
-                            whether you own or maintain a website.
+                            whether you own/maintain a website.
                         </script>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
                             ## On-Site WA
 
-                            On-site web analytics measures a **visitor's behavior once on your website**.
-                            There are two main technical ways of collecting the data: **server log file
-                            analysis**, and **page tagging**.
+                            On-site web analytics measures a **visitor's behavior<br>once on your website**.
+                            There are two main technical<br>ways of collecting the data: **server log file
+                            analysis**,<br>and **page tagging**.
 
                             <br>
                             <br>
@@ -88,10 +86,10 @@
                             Web servers record some of their transactions in a **logfile**.
 
                             In the early 1990s, web site statistics consisted of counting the number
-                            of client requests, called **hits**, made to the web server.
+                            of client requests (**hits**) made to the web server.
 
                             <br>
-                            This was a reasonable method initially, since each web site often consisted of a
+                            This was a reasonable method initially, since each web site<br>often consisted of a
                             single HTML file. However, with the introduction of images in HTML, and web
                             sites that spanned multiple HTML files, this count became less useful.
 
@@ -185,7 +183,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## How Does The Tracking Code Work? (1/2)
+                            ### How Does The Tracking Code Work? (1/2)
 
                             1. A browser requests a web page that contains the tracking code
                             2. A JavaScript `Array` named `_gaq` is created and tracking commands are pushed onto the array
@@ -199,17 +197,17 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## How Does The Tracking Code Work? (2/2)
+                            ### How Does The Tracking Code Work? (2/2)
 
                             <img src="images/ga-tracking.png" class="no-border" />
                         </script>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## How Does Google Analytics Collect Data? (1/2)
+                            ### How Does Google Analytics Collect Data? (1/2)
 
                             The **data used** to provide all the information in Google
-                            Analytics **reports** comes from three different sources:
+                            <br>Analytics **reports** comes from three different sources:
 
                             * The **HTTP request** of the user (hostname, the browser type, referrer, language)
                             * Browser/system information (Java and Flash support, screen resolution thanks to the DOM)
@@ -218,7 +216,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## How Does Google Analytics Collect Data? (2/2)
+                            ### How Does Google Analytics Collect Data? (2/2)
 
                             When all this information is collected, it is sent
                             to the Google Analytics servers in the form of a
@@ -226,21 +224,23 @@
                             **single-pixel GIF image** request:
 
                             <pre><code>http://www.google-analytics.com/__utm.gif?
-                                utmac=UA-30138-1&                      // Account
-                                utmcc=__utma%3D97315849.1774621898...& // Cookie values
-                                utmdt=analytics%20page%20test&         // Page title
-                                utmfl=9.0%20r48&                       // Flash version
-                                utmhn=example.com&                     // Hostname
-                                utmn=769876874&                        // Unique ID to prevent caching
-                                utmcs=ISO-8859-1&                      // Language enc.
-                                utmsr=1280x1024&                       // Screen resolution
-                                utmsc=32-bit&                          // Screen color depth
-                                utmul=en-us&                           // Browser language
-                                ...
+                              utmac=UA-30138-1&                      // Account
+                              utmcc=__utma%3D97315849.1774621898...& // Cookie values
+                              utmdt=analytics%20page%20test&         // Page title
+                              utmfl=9.0%20r48&                       // Flash version
+                              utmhn=example.com&                     // Hostname
+                              utmn=769876874&                        // Unique ID to prevent caching
+                              utmcs=ISO-8859-1&                      // Language enc.
+                              utmsr=1280x1024&                       // Screen resolution
+                              utmsc=32-bit&                          // Screen color depth
+                              utmul=en-us&                           // Browser language
+                              ...
                             </code></pre>
 
+                            <small>
                             <i class="fa fa-book"></i> [The Google Analytics GIF Request
                             Parameters](https://developers.google.com/analytics/resources/articles/gaTrackingTroubleshooting#gifParameters)
+                            </small>
                         </script>
                     </section>
                     <section>
@@ -300,7 +300,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## EU Cookie Directive
+                            ### EU Cookie Directive
 
                             The **EU cookie directive** requires websites to
                             gain permission from users, before planting cookies
@@ -308,7 +308,7 @@
 
                             * Some cookies can be exempted from informed consent
                             under certain conditions if they are not used for
-                            additional purposes (e.g. cookies used to keep
+                            additional purposes (_e.g._, cookies used to keep
                             track of a user's input when filling online forms
                             or as a shopping cart);
                             * First-party analytics cookies are not likely to
@@ -321,7 +321,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## How Do Third-Party Tracking Cookies work? (1/4)
+                            ### How Do Third-Party Tracking Cookies work? (1/4)
 
                             Let's say you have four websites:
 
@@ -330,18 +330,17 @@
                             * wired.com
                             * facebook.com
 
-                            <br>
                             You are a user, and you visit each of these websites.
                             Each of these websites also works with a third-party company whose
-                            job is to serve ads, and named: **badboys.com**.
+                            job is to serve ads, and named: `badboys.com`.
 
                             On every page of these websites, there is a web bug that points to
-                            badboys.com's adserver and requests an ad.
+                            `badboys.com`'s adserver and requests an ad.
                         </script>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## How Do Third-Party Tracking Cookies work? (2/4)
+                            ### How Do Third-Party Tracking Cookies work? (2/4)
 
                             Assuming `gizmodo.com` knows your age and gender,
                             when visiting it, the following request is made:
@@ -358,7 +357,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## How Do Third-Party Tracking Cookies work? (3/4)
+                            ### How Do Third-Party Tracking Cookies work? (3/4)
 
                             Even though you are visiting the site
                             `gizmodo.com`, the cookie is under the domain
@@ -376,7 +375,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## How Do Third-Party Tracking Cookies work? (4/4)
+                            ### How Do Third-Party Tracking Cookies work? (4/4)
 
                             Now, you go to `facebook.com`. Serving an ad for such a website is
                             complicated as it depends on how you use Facebook. Maybe you didn't
@@ -385,24 +384,26 @@
 
                             <br>
                             **But**, let's walk through the steps of a Facebook's ad call to
-                            `badboys.com` in more detail!
+                            `badboys.com` in more details!
                         </script>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## 1. Browser Requests Content
+                            ### 1. Browser Requests Content
+                            <br>
 
                                 http://badboys.com/adrequest?site=facebook.com
                         </script>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## 2. Server Requests Cookies (If Any)
+                            ### 2. Server Requests Cookies (If Any)
                         </script>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## 3. Browser Sends Cookies
+                            ### 3. Browser Sends Cookies
+                            <br>
 
                             * Cookie contains your age & gender (25 & male) (encrypted)
                             * Cookie shows you visited `gizmodo.com` 12 times this morning
@@ -412,7 +413,8 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## 4. Server Does Some Black Magic, And Picks An Ad
+                            ### 4. Server Does Some Black Magic,<br>And Picks An Ad
+                            <br>
 
                             * Server puts user data (_25, male, 16 visits to tech sites_) into a **profile engine**
                             * Profile engine represents **categories**, say `male`, `tech`
@@ -425,17 +427,17 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## 5. Server Returns New Cookie Data, And The Ad
+                            ### 5. Server Returns New Cookie Data, And The Ad
                         </script>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## 6. Browser Displays This Ad
+                            ### 6. Browser Displays This Ad
                         </script>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## Conclusion
+                            ### Conclusion
 
                             Instead of showing you a random ad, `badboys.com`
                             is able to show you a highly relevant and targeted
@@ -445,7 +447,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## And...
+                            ### And...
 
                             Given how much tracking companies know about your
                             browsing history, it is worth asking whether these
@@ -456,7 +458,8 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## Paths For Data Leakage From Social Networks To Third-Party Tracking Companies
+                            ### Paths For Data Leakage From<br>Social Networks To Third-Party Tracking Companies
+                            <br>
 
                             The most obvious way that a third-party tracker
                             (remember `badboys.com`?) might learn which account
@@ -470,7 +473,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## What Can You Do?
+                            ### What Can You Do?
 
                             1. Pick a **good cookie policy** for your browser, like **only keep
                             cookies until I close my browser**, or manual approval of all cookies
@@ -556,7 +559,6 @@
 
                         <br>
                         <br>
-                        <br>
                         <ul class="me">
                             <li>
                                 <p><i class="fa fa-globe"></i><a href="http://williamdurand.fr" title="website">williamdurand.fr</a></p>
@@ -573,7 +575,7 @@
             </div>
         </div>
         <script src="reveal.js/lib/js/head.min.js"></script>
-        <script src="reveal.js/js/reveal.min.js"></script>
+        <script src="reveal.js/js/reveal.js"></script>
         <script>
             Reveal.initialize({
                 controls: true,
